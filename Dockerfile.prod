@@ -1,0 +1,34 @@
+FROM python:3.11-slim
+
+# Install Node.js 20 LTS
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends curl ca-certificates \
+  && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+  && apt-get install -y --no-install-recommends nodejs \
+  && rm -rf /var/lib/apt/lists/*
+
+# Copy uv from official image
+COPY --from=ghcr.io/astral-sh/uv:0.9.26 /uv /uvx /bin/
+
+WORKDIR /app
+
+# Install dependencies (cached layers)
+COPY package.json package-lock.json* ./
+COPY frontend/package.json frontend/package-lock.json* ./frontend/
+COPY backend/pyproject.toml backend/uv.lock ./backend/
+
+RUN npm install --legacy-peer-deps \
+  && npm install --prefix frontend --legacy-peer-deps \
+  && cd backend && uv sync --frozen --no-dev
+
+# Copy source
+COPY . .
+
+# Build frontend into static files
+RUN cd frontend && npm run build
+
+# Expose ports
+EXPOSE 3000 5001
+
+# Start backend (Flask serves API on 5001) + a simple static file server for frontend
+CMD ["python", "backend/run.py"]
