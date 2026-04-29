@@ -765,4 +765,28 @@ onMounted(loadPortfolios)
 }
 .form-group { }
 .form-full { grid-column: 1 / -1; }
+
+/* ── Mobile responsive ── */
+@media (max-width: 768px) {
+  .portfolio-layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-height: unset;
+    border-right: none;
+    border-bottom: 1px solid #1e1e2e;
+  }
+  .sidebar-portfolios { display: none; }
+  .sidebar-nav { display: flex; flex-direction: row; padding: 0; overflow-x: auto; }
+  .nav-item { padding: 12px 16px; white-space: nowrap; border-bottom: 2px solid transparent; }
+  .nav-item.active { border-bottom-color: #f97316; background: transparent; }
+  .main-content { padding: 16px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .content-grid { grid-template-columns: 1fr; }
+  .holdings-table { display: block; overflow-x: auto; font-size: 11px; }
+  .modal { min-width: unset; width: 92vw; }
+  .modal-wide { min-width: unset; width: 92vw; }
+  .form-grid { grid-template-columns: 1fr; }
+  .page-header { flex-direction: column; gap: 12px; }
+  .header-actions { display: flex; gap: 8px; }
+}
 </style>

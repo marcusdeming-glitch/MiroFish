@@ -570,4 +570,21 @@ onMounted(async () => {
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-secondary { background: transparent; color: #94a3b8; border: 1px solid #334155; border-radius: 6px; padding: 8px 16px; font-size: 12px; cursor: pointer; font-family: inherit; text-decoration: none; }
 .btn-sm { padding: 5px 10px; font-size: 10px; }
+
+@media (max-width: 768px) {
+  .portfolio-layout { flex-direction: column; }
+  .sidebar { width: 100%; min-height: unset; border-right: none; border-bottom: 1px solid #1e1e2e; }
+  .sidebar-filters { display: none; }
+  .sidebar-nav { display: flex; flex-direction: row; padding: 0; overflow-x: auto; }
+  .nav-item { padding: 12px 16px; white-space: nowrap; }
+  .nav-item.active { border-bottom: 2px solid #f97316; background: transparent; }
+  .main-content { padding: 16px; }
+  .analysis-grid { grid-template-columns: 1fr; }
+  .sentiment-banner { flex-direction: column; gap: 12px; }
+  .risks-catalysts-row { grid-template-columns: 1fr; }
+  .rec-header { flex-wrap: wrap; gap: 6px; }
+  .news-mini-item { grid-template-columns: 70px 1fr; }
+  .news-mini-date { display: none; }
+  .page-header { flex-direction: column; gap: 12px; }
+}
 </style>

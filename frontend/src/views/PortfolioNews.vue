@@ -293,4 +293,16 @@ onMounted(async () => {
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-secondary { background: transparent; color: #94a3b8; border: 1px solid #334155; border-radius: 6px; padding: 8px 16px; font-size: 12px; cursor: pointer; font-family: inherit; }
 .btn-secondary:hover { border-color: #94a3b8; color: #e2e8f0; }
+
+@media (max-width: 768px) {
+  .portfolio-layout { flex-direction: column; }
+  .sidebar { width: 100%; min-height: unset; border-right: none; border-bottom: 1px solid #1e1e2e; }
+  .sidebar-filters { display: none; }
+  .sidebar-nav { display: flex; flex-direction: row; padding: 0; overflow-x: auto; }
+  .nav-item { padding: 12px 16px; white-space: nowrap; }
+  .nav-item.active { border-bottom: 2px solid #f97316; background: transparent; }
+  .main-content { padding: 16px; }
+  .page-header { flex-direction: column; gap: 12px; }
+  .article-card { padding: 14px; }
+}
 </style>
