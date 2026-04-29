@@ -1,20 +1,12 @@
 services:
   mirofish:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: mirofish
     env_file:
       - .env
     ports:
-      # Change 8080 to any free port on your NAS
-      - "8080:3000"   # Open http://<NAS-IP>:8080 in browser
-      - "5001:5001"   # Backend API (internal, no need to expose publicly)
+      - "8080:3000"
+      - "5001:5001"
     restart: unless-stopped
     volumes:
-      # Persistent storage — portfolio data, uploads, simulation results
-      # Change ./data to wherever you want to store data on your NAS
-      - ./data/uploads:/app/backend/uploads
-    environment:
-      - FLASK_DEBUG=false
-      - FLASK_HOST=0.0.0.0
+      - ./data:/app/backend/uploads
