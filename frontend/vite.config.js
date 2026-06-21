@@ -13,6 +13,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    host: true,  // expose to local network so phones can connect
     open: true,
     proxy: {
       '/api': {

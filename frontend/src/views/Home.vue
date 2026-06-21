@@ -205,6 +205,31 @@
         </div>
       </section>
 
+      <!-- Portfolio Analysis Entry -->
+      <section class="portfolio-entry-section">
+        <div class="portfolio-entry-card">
+          <div class="portfolio-entry-left">
+            <span class="portfolio-entry-tag">NEW</span>
+            <h3 class="portfolio-entry-title">Portfolio Analysis</h3>
+            <p class="portfolio-entry-desc">
+              Track your stocks and ETFs. Get AI-powered analysis from real-world news (Reuters, CNBC, Bloomberg, FT),
+              SEC & SGX filings — with cross-industry impact mapping and conservative recommendations.
+            </p>
+            <div class="portfolio-entry-features">
+              <span class="feature-pill">◈ Holdings Dashboard</span>
+              <span class="feature-pill">◎ News Feed</span>
+              <span class="feature-pill">◐ AI Analysis</span>
+              <span class="feature-pill">⚑ Recommendations</span>
+            </div>
+          </div>
+          <div class="portfolio-entry-right">
+            <router-link to="/portfolio" class="portfolio-cta-btn">
+              Open Portfolio Analyzer <span class="btn-arrow">→</span>
+            </router-link>
+          </div>
+        </div>
+      </section>
+
       <!-- 历史项目数据库 -->
       <HistoryDatabase />
     </div>
@@ -949,5 +974,90 @@ html[lang="en"] .workflow-list .step-desc {
 
 html[lang="en"] .workflow-list {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Portfolio Entry Section */
+.portfolio-entry-section {
+  margin: 40px 0;
+}
+
+.portfolio-entry-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #0d0d15 0%, #1a0a00 100%);
+  border: 1px solid #f97316;
+  border-radius: 12px;
+  padding: 28px 32px;
+  gap: 24px;
+}
+
+.portfolio-entry-left {
+  flex: 1;
+}
+
+.portfolio-entry-tag {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #f97316;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.portfolio-entry-title {
+  font-size: 20px;
+  color: #f1f5f9;
+  margin: 0 0 8px;
+  font-family: inherit;
+}
+
+.portfolio-entry-desc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  max-width: 520px;
+}
+
+.portfolio-entry-features {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.feature-pill {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #1e1e2e;
+  color: #94a3b8;
+  border: 1px solid #334155;
+}
+
+.portfolio-entry-right {
+  flex-shrink: 0;
+}
+
+.portfolio-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #f97316;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.portfolio-cta-btn:hover {
+  background: #ea6a05;
 }
 </style>
